@@ -1,12 +1,10 @@
 import 'dart:convert';
-
-import 'package:absensi_project/components/form_text.dart';
 import 'package:absensi_project/components/rounded_button.dart';
-import 'package:absensi_project/screens/absen_page.dart';
 import 'package:absensi_project/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'dart:math';
 
 
 class BodyRegister extends StatefulWidget {
@@ -26,6 +24,20 @@ class _FormState extends State<BodyRegister> {
   TextEditingController password = TextEditingController();
   bool emptyField = false;
   final formKey = GlobalKey<FormState>();
+
+  @override
+  void initState(){
+    super.initState();
+
+    final randomString = generateRandomString(5);
+    nik.text = "A-$randomString";
+  }
+
+  String generateRandomString(int len) {
+    var r = Random();
+    const _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    return List.generate(len, (index) => _chars[r.nextInt(_chars.length)]).join();
+  }
 
   Future<void> _showMyDialog() async {
     return showDialog<void>(
@@ -70,7 +82,7 @@ class _FormState extends State<BodyRegister> {
       "address" : address.text,
       "password": password.text
     };
-    var res = await http.post(Uri.parse("http://10.0.2.2:9091/absensi-api/add-user"),
+    var res = await http.post(Uri.parse("http://192.168.0.3:9091/absensi-api/add-user"),
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },

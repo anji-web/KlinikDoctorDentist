@@ -1,0 +1,23 @@
+
+D
+java:S3740K"/Provide the parametrized type for this generic.(‚‹„;
+[
+java:S46849"@Replace this persistent entity with a simple POJO or DTO object.(¡·³çùÿÿÿÿ
+[
+java:S4684B"@Replace this persistent entity with a simple POJO or DTO object.(ĞõØ øÿÿÿÿ
+Y
+java:S1612X">Replace this lambda with method reference 'Role::getRoleName'.(»¾õ´ıÿÿÿÿ
+_
+java:S1128"DRemove this unused import 'com.absensi.backend.repository.UsersDao'.(ÿİŞ¡ÿÿÿÿÿ
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+J
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ
+c
+java:S1128"HRemove this unused import 'org.keycloak.authorization.client.util.Http'.(ÿ›Ÿúÿÿÿÿ
+y
+java:S1128"^Remove this unused import 'org.springframework.security.authentication.AuthenticationManager'.(ğş–şÿÿÿÿ
+‡
+java:S1128"lRemove this unused import 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken'.(ÖÆ„Ùüÿÿÿÿ
+l
+java:S1128"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥

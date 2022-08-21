@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:absensi_project/components/background.dart';
 import 'package:absensi_project/components/rounded_button.dart';
 import 'package:absensi_project/constans.dart';
+import 'package:absensi_project/model/user-model.dart';
 import 'package:absensi_project/screens/first_page.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BodyLogin extends StatefulWidget {
   const BodyLogin({Key? key}) : super(key: key);
@@ -14,6 +19,44 @@ class BodyLogin extends StatefulWidget {
 
 class _BodyLoginState extends State<BodyLogin> {
   bool obsText = true;
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+
+  Future<User> loginProcess () async {
+
+    var body = {
+        "username" : username.text,
+        "password" : password.text
+    };
+
+    var res = await http.post(
+        Uri.parse("http://192.168.0.3:9091/absensi-api/login"),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(body)
+    );
+
+    var result = jsonDecode(res.body)['data'];
+    User user =  User(statusCode: result['statusCode'],
+        token: result['token'],
+        id: result['id'],
+        username: result['username'],
+        fullname: result['fullname'],
+        nik: result['nik'],
+        roles: result['roles']);
+
+    _saveTemp(result['id'], result['nik'], result['fullname']);
+    return user;
+  }
+
+  _saveTemp(id, nik , fullname) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt("id_user", id);
+    prefs.setString("nik", nik);
+    prefs.setString("fullname", fullname);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +84,8 @@ class _BodyLoginState extends State<BodyLogin> {
                   color: primaryColor,
                   borderRadius: BorderRadius.circular(29)
               ),
-              child: TextField(
+              child: TextFormField(
+                controller: username,
                 autofocus: false,
                 style: TextStyle(
                     color: Colors.black,
@@ -54,7 +98,7 @@ class _BodyLoginState extends State<BodyLogin> {
                       size: 30,
                       color: Colors.black,
                     ),
-                    labelText: "Username or Email",
+                    labelText: "Username",
                     labelStyle: TextStyle(
                         color: Colors.black
                     )
@@ -69,7 +113,8 @@ class _BodyLoginState extends State<BodyLogin> {
                   color: primaryColor,
                   borderRadius: BorderRadius.circular(29)
               ),
-              child: TextField(
+              child: TextFormField(
+                controller: password,
                 autofocus: false,
                 enableInteractiveSelection: true,
                 obscureText: obsText,
@@ -111,12 +156,27 @@ class _BodyLoginState extends State<BodyLogin> {
             ),
             RoundedButton(
               text: "Submit",
-              press: () => {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return FirstPage();
-                    }
-                ))
+              press: () async {
+                User user = await loginProcess();
+                setState((){
+                  if(user.statusCode == 200){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return const FirstPage();})
+                    );
+                  }else {
+                    Fluttertoast.showToast(
+                        msg: "username atau password salah",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 3,
+                        backgroundColor: Colors.white,
+                        textColor: Colors.red,
+                        fontSize: 18.0
+                    );
+                  }
+                });
               },
               color: primaryLightColor,
             )

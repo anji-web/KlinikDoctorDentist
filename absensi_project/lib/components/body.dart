@@ -32,7 +32,7 @@ class Body extends StatelessWidget {
               height: size.height * 0.03,
             ),
             Text(
-              "PT JAVA MEDIA INDONESIA",
+              "KLINIK DOCTOR DENTIST",
               style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold

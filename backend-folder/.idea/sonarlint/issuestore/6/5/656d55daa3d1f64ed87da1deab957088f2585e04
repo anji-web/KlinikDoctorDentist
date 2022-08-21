@@ -1,0 +1,10 @@
+
+[	java:S112o"FDefine and throw a dedicated exception instead of using a generic one.(ş£Åé
+a	java:S112š"FDefine and throw a dedicated exception instead of using a generic one.(ŒÚ„§ÿÿÿÿÿ
+`	java:S112l"FDefine and throw a dedicated exception instead of using a generic one.(Ø°ãùÿÿÿÿ
+C
+java:S1481r"-Remove this unused "keycloak" local variable.(á’»‘
+n
+java:S2737­"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û
+|
+java:S1488´"`Immediately return this expression instead of assigning it to the temporary variable "keycloak".(Çõ˜Íşÿÿÿÿ

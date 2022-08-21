@@ -1,9 +1,13 @@
 import 'package:absensi_project/components/background.dart';
 import 'package:absensi_project/components/form_text.dart';
+import 'package:absensi_project/components/rounded_button.dart';
 import 'package:absensi_project/screens/absen_list.dart';
 import 'package:absensi_project/screens/absen_page.dart';
+import 'package:absensi_project/screens/leave_form.dart';
 import 'package:absensi_project/screens/login_page.dart';
+import 'package:absensi_project/screens/sick_form.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BodyFirstPage extends StatelessWidget {
   const BodyFirstPage({Key? key}) : super(key: key);
@@ -25,7 +29,7 @@ class BodyFirstPage extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.01,
               ),
-              Text("PT JAVA MEDIA INDONESIA",
+              Text("KLINIK DOCTOR DENTIST",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold
@@ -109,6 +113,11 @@ class BodyFirstPage extends StatelessWidget {
                   InkWell(
                       splashColor: Colors.black,
                       onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return const LeaveForm();
+                        }));
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -129,7 +138,14 @@ class BodyFirstPage extends StatelessWidget {
                       )
                   ),
                   InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return const SickForm();
+                            })
+                        );
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -150,6 +166,35 @@ class BodyFirstPage extends StatelessWidget {
                       )
                   ),
                 ],
+              ),
+              SizedBox(height: size.height * 0.07,),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.redAccent,
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30)
+                  ),
+                  onPressed: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    prefs.clear();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) {
+                              return const LoginPage();
+                            }
+                        )
+                    );
+                  },
+                  child: const Text(
+                    "Logout",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
+                  ),
+                ),
               ),
             ],
           )

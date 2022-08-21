@@ -1,5 +1,8 @@
 package com.absensi.backend.dto;
 
+import com.absensi.backend.model.Role;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

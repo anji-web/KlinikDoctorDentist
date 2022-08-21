@@ -1,0 +1,22 @@
+
+t
+java:S1128"^Remove this unused import 'com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer'.(¯õ…á
+p
+java:S1128"ZRemove this unused import 'com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer'.(‡ÞÞå
+K
+java:S1128
+"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ
+U
+java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª
+A
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü
+l
+java:S1128"QRemove this unused import 'org.springframework.format.annotation.DateTimeFormat'.(‡ˆôƒøÿÿÿÿ
+o
+java:S1104 "TMake fullname a static final constant or non-public and provide accessors if needed.(ŒÏœÅüÿÿÿÿ
+n
+java:S1104!"SMake address a static final constant or non-public and provide accessors if needed.(€ªµúÿÿÿÿÿ
+e
+java:S1104*"OMake nik a static final constant or non-public and provide accessors if needed.(²¹ÍÇ
+h
+java:S1104+"RMake status a static final constant or non-public and provide accessors if needed.(œ©²ÿ
