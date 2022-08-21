@@ -1,0 +1,22 @@
+
+[	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(÷Êÿ 
+[	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(Ü•¯Á
+[	java:S112R"FDefine and throw a dedicated exception instead of using a generic one.(¯ó
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8•ÑéŞ©0
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8•ÑéŞ©0
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8•ÑéŞ©0
+Y
+java:S1128"<Remove this unused import 'javax.persistence.criteria.Root'.(ùÆšğ8•ÑéŞ©0
+m
+java:S1128"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åıÿÿÿÿ8–ÑéŞ©0
+s
+java:S1128"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥8–ÑéŞ©0
+z
+java:S1128"]Remove this unused import 'org.springframework.security.core.userdetails.UserDetailsService'.(¶…¥à8–ÑéŞ©0
+{
+java:S1128"YRemove this unused import 'org.springframework.security.crypto.password.PasswordEncoder'.(‰¡ßáÿÿÿÿÿ8–ÑéŞ©0
+x
+java:S1488h"]Immediately return this expression instead of assigning it to the temporary variable "users".(²×©øÿÿÿÿ
